@@ -3,7 +3,14 @@ import tkinter as tk
 import math
 import time
 
+def close(event):
+    root.withdraw()
+    root.destroy()
+    
 root = tk.Tk()
+root.bind('<Escape>', close)
+root.bind('q', close)
+
 w = 1920*1.5
 h = 1080*1.5
 r = h/2
@@ -38,6 +45,7 @@ def counter_reset():
     counter = 0
   
 canvas = tk.Canvas(root, width=w, height=h, borderwidth=0, highlightthickness=0, bg="black")
+
 canvas.grid()
 
 counter_mod(canvas)
