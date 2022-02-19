@@ -19,9 +19,11 @@ msec = 40
 np = 256
 plist=[[w/2+r,0]]
 
-def _draw_mod(self, f, width, height, **kwargs):
+def _draw_mod(self, mult, mod, width, height, **kwargs):
+    f = mult%np
     self.delete("all")
-    self.create_text(300,100,fill="white",font="Times 20 italic bold",text="Faktor "+"{:.2f}".format(f))
+    self.create_text(300,100,fill="white",font="Times 20 italic bold",text="Multiplier "+"{:.2f}".format(mult))
+    self.create_text(300,130,fill="white",font="Times 20 italic bold",text="Modulo "+"{:d}".format(mod))
     self.create_oval(width/2-r, height/2-r,width/2+r,height/2+r, fill="blue", outline="#DDD", width=4)
     for n in range(1, np-1):
         p = [r*math.cos(2*math.pi*n/np),r*math.sin(2*math.pi*n/np)]
@@ -35,8 +37,7 @@ def counter_mod(canvas):
   def count():
     global counter
     counter += step
-    counter %= np
-    canvas.draw_mod(counter,w,h,fill="yellow")    
+    canvas.draw_mod(counter, np,w,h,fill="yellow")    
     canvas.after(msec, count)
   count()
 
