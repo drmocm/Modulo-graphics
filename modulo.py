@@ -15,8 +15,8 @@ root = tk.Tk()
 root.config(width=w,height=h+200)
 root.bind('<Escape>', close)
 root.bind('q', close)
-sli1 = tk.Scale(root, from_=2, to=5000, tickinterval=100,orient=tk.HORIZONTAL)
-sli2 = tk.Scale(root, from_=2, to=100, tickinterval=10, orient=tk.HORIZONTAL)
+sli1 = tk.Scale(root, from_=2, to=2500, tickinterval=100,orient=tk.HORIZONTAL)
+sli2 = tk.Scale(root, from_=2, to=500, tickinterval=10, orient=tk.HORIZONTAL)
 
 step = 1.0/25.0
 msec = 40
